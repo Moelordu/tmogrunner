@@ -1,0 +1,52 @@
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="nameRealm">Name</label>
+            <input type="text" class="form-control" name="nameRealm" id="nameRealm" required>
+        </div>
+        <div class="form-group">
+            <label for="regionRealm">Region</label>
+            <select name="regionRealm" id="regionRealm" class="custom-select" required>
+                <?php
+                $regions = dbget::get("regions");
+                foreach ($regions as $region) {
+                ?><option value=<?= $region[0] ?>><?= $region[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-secondary">Push</button>
+    </form>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Region</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $realms = dbget::get("realms");
+            foreach ($realms as $realm) {
+            $reg = dbget::toName("regions", $realm["regionRealm"]);
+            ?>
+                <tr>
+                    <th scope="row"><?= $realm["idRealms"] ?></td>
+                    <td><?= $realm["nameRealm"] ?></td>
+                    <td><?= $reg[0] ?></td>
+                    <td>
+                        <a class="btn btn-secondary" href="editrealm/<?= $realm["idRealms"] ?>">Edit</a>
+                        <a class="btn btn-secondary" href="editrealm/<?= $realm["idRealms"] ?>/delete">Delete</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</div>

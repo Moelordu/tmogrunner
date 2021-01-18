@@ -1,0 +1,10 @@
+<?php $facs = dbget::getByID("factions", $id); ?>
+<div class="container">
+<form method="post">
+<div class="form-group">
+    <label for="nameFaction">Name</label>
+    <input type="text" name="nameFaction" id="editNameFaction" class="form-control" value="<?= $facs[1] ?>" required>
+    </div>
+    <input type="submit" class="btn btn-secondary" value="Push">
+</form>
+</div>

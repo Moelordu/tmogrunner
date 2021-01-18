@@ -1,0 +1,10 @@
+<?php $class = dbget::getByID("classes", $id); ?>
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="nameClass">Name</label>
+            <input type="text" class="form-control" name="nameClass" value="<?= $class[1] ?>" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Push</button>
+    </form>
+</div>

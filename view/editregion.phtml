@@ -1,0 +1,10 @@
+<?php $regions = dbget::getByID("regions", $id); ?>
+<div class="container">
+<form method="post">
+<div class="form-group">
+    <label for="nameRegion">Name</label>
+    <input type="text" name="nameRegion" id="editNameRegion" class="form-control" value="<?= $regions[1] ?>" required>
+    </div>
+    <input type="submit" class="btn btn-secondary" value="Push">
+</form>
+</div>

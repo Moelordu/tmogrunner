@@ -1,0 +1,68 @@
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="nameItem">Name</label>
+            <input type="text" class="form-control" name="nameItem" id="nameItem" required>
+        </div>
+        <div class="form-group">
+            <label for="idTypes">Types</label>
+            <select name="idTypes" id="idTypes" class="custom-select" required>
+                <?php
+                $types = dbget::get("types");
+                foreach ($types as $type) {
+                ?><option value=<?= $type[0] ?>><?= $type[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="classSet">Set (optional)</label>
+            <select name="classSet" id="classSet" class="custom-select">   
+                <option value=0> </option>
+                <?php
+                $classes = dbget::get("classes");
+                foreach ($classes as $class) {
+                ?><option value=<?= $class[0] ?>><?= $class[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-secondary">Push</button>
+    </form>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Set</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $items = dbget::get("items");
+            foreach ($items as $item) {
+                $className = dbget::toName("classes", $item["classSet"]);
+                $typeName = dbget::toName("types", $item["idTypes"]);
+            ?>
+                <tr>
+                    <th scope="row"><?= $item["idItems"] ?></td>
+                    <td><?= $item["nameItem"] ?></td>
+                    <td><?= $typeName[0] ?></td>
+                    <td><?php if ($item["classSet"] > 0){ echo $className[0];} ?></td>
+                    <td>
+                        <a class="btn btn-secondary" href="edititem/<?= $item["idItems"] ?>">Edit</a>
+                        <a class="btn btn-secondary" href="edititem/<?= $item["idItems"] ?>/delete">Delete</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <base href="/">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>tmogRunner</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="intro">tmogRunner</a>
+        <div class="navbar-nav navbar-collapse collapse container-fluid">
+            <div class="d-inline-flex">
+                <a class="nav-item nav-link" href="items">Items</a>
+                <a class="nav-item nav-link" href="raids">Raids</a>
+                <div class="nav-item dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                        Account
+                    </a>
+                    <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                        <?php
+                        if (isset($_SESSION["user"])) {
+                        ?>
+                            <?php
+                            if ($_SESSION["user"]["admin"] == 1) {
+                            ?>
+                                <a class="dropdown-item" href="adddifficulty">Add Difficulty</a>
+                                <a class="dropdown-item" href="additem">Add Item</a>
+                                <a class="dropdown-item" href="addraid">Add Raid</a>
+                                <a class="dropdown-item" href="addboss">Add Boss</a>
+                                <a class="dropdown-item" href="addtype">Add Type</a>
+                                <a class="dropdown-item" href="addregion">Add Region</a>
+                                <a class="dropdown-item" href="addfaction">Add Faction</a>
+                                <a class="dropdown-item" href="addrealm">Add Realm</a>
+                                <a class="dropdown-item" href="addclass">Add Class</a>
+                                <a class="dropdown-item" href="addtypeclass">Add TypeClass</a>
+                                <a class="dropdown-item" href="addbossitem">Add BossItem</a>
+                                <a class="dropdown-item" href="adduser">Accounts</a>
+                            <?php
+                            } ?>
+                            <a class="dropdown-item" href="addcharacter">Add Character</a>
+                            <a class="dropdown-item" href="favorite">Favorite</a>
+                            <a class="dropdown-item" href="edit">Edit Account</a>
+                            <a class="dropdown-item" href="logout">Log out</a>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="dropdown-item" href="signup">Sign up</a>
+                            <a class="dropdown-item" href="login">Log in</a>
+                        <?php
+                        }
+
+                        ?>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <?php
+                if (isset($_SESSION["user"])) {
+                ?>
+                    <p class="d-inline my-2">User: <?= $_SESSION["user"]["name"] ?></p>
+
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <?php
+            $this->controller->printView();
+            ?>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<?php $item = dbget::getByID("items", $id); ?>
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="nameItem">Name</label>
+            <input type="text" class="form-control" name="nameItem" value="<?= $item[1] ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="idTypes">Types</label>
+            <select name="idTypes" class="custom-select" required>
+                <?php
+                $types = dbget::get("types");
+                foreach ($types as $type) {
+                ?><option value=<?= $type[0] ?> <?php if($item[2] == $type[0]){ echo "selected";} ?>><?= $type[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="classSet">Set (optional)</label>
+            <select name="classSet" class="custom-select">   
+                <option value=0> </option>
+                <?php
+                $classes = dbget::get("classes");
+                foreach ($classes as $class) {
+                ?><option value=<?= $class[0] ?> <?php if($item[3] == $class[0]){ echo "selected";} ?>><?= $class[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-secondary">Push</button>
+    </form>
+</div>

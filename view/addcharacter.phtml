@@ -1,0 +1,77 @@
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="nameCharacter">Name</label>
+            <input type="text" class="form-control" name="nameCharacter" id="nameCharacter" required>
+        </div>
+        <div class="form-group">
+            <label for="realmCharacter">Realm</label>
+            <select name="realmCharacter" id="realmCharacter" class="custom-select" required>
+                <?php
+                $realms = dbget::get("realms");
+                foreach ($realms as $realm) {
+                $reg = dbget::toName("regions", $realm[2]);
+                ?><option value=<?= $realm[0] ?>><?= $realm[1] . " " . $reg[0] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="factionCharacter">Faction</label>
+            <select name="factionCharacter" id="factionCharacter" class="custom-select" required>
+                <?php
+                $factions = dbget::get("factions");
+                foreach ($factions as $faction) {
+                ?><option value=<?= $faction[0] ?>><?= $faction[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="classCharacter">Class</label>
+            <select name="classCharacter" id="classCharacter" class="custom-select" required>
+                <?php
+                $classes = dbget::get("classes");
+                foreach ($classes as $class) {
+                ?><option value=<?= $class[0] ?>><?= $class[1] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="hidden" class="form-control" name="accountCharacter" id="accountCharacter" value="<?= $_SESSION["user"]["idAccounts"] ?>" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Push</button>
+    </form>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $characters = dbget::getAccCharacters();
+            foreach ($characters as $character) {
+            ?>
+                <tr>
+                    <th scope="row"><?= $character["idCharacters"] ?></td>
+                    <td><?= $character["nameCharacter"] ?></td>
+                    <td>
+                        <a class="btn btn-secondary" href="editcharacter/<?= $character["idCharacters"] ?>">Edit</a>
+                        <a class="btn btn-secondary" href="editcharacter/<?= $character["idCharacters"] ?>/delete">Delete</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</div>

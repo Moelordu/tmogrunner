@@ -1,0 +1,45 @@
+<?php
+if (isset($_POST["favItem"])) {
+    $sql = "INSERT INTO FavoriteRaid
+(idRaid, idUser) VALUES
+('{$_POST["favItem"]}', '{$_SESSION["user"]["idUser"]}')";
+
+    mysqli_query($conn, $sql);
+    header("Location: Items.php");
+} ?>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>name</th>
+            <th>ilvl</th>
+            <th>drop</th>
+            <th>slot</th>
+            <th>boss</th>
+            <th>raid</th>
+            <th></th>
+        </tr>
+        <?php
+        $sql = "SELECT * FROM item INNER JOIN boss USING(idBoss) INNER JOIN raid USING(idRaid) ORDER BY nameItem";
+        $kek = mysqli_query($conn, $sql);
+        $items = mysqli_fetch_all($kek, MYSQLI_ASSOC);
+
+        foreach ($items as $item) {
+            echo "<tr>
+            <td>{$item["nameItem"]}</td>
+            <td>{$item["ilvl"]}</td>
+            <td>{$item["drop_chance"]}</td>
+            <td>{$item["slot"]}</td>
+            <td>{$item["nameBoss"]}</td>
+            <td>{$item["nameRaid"]}</td>
+            <td>
+                <form method='post'>
+                    <input type='hidden' name='favItem' id='favItem'
+                           value='{$item["idRaid"]}'> 
+                    <button type='submit' class='btn btn-link' style='padding-bottom: 0px; padding-top: 0px;  color: yellow;'>☆</button>
+                </form>
+            </td>
+          </tr>";
+        }
+        ?>
+    </table>
+</div>
