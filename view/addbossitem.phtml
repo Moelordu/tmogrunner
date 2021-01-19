@@ -1,7 +1,8 @@
+
 <div class="container">
     <form method="post">
         <div class="form-group">
-            <label for="idBosses">Class</label>
+            <label for="idBosses">Boss</label>
             <select name="idBosses" id="idBosses" class="custom-select" required>
                 <?php
                 $bosses = dbget::get("bosses");
@@ -14,8 +15,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="idItems">Type</label>
-            <select name="idItems" id="idItems" class="custom-select" required>
+            <label for="idItems">Item</label>
+            <select class="custom-select example" name="idItems" required>
                 <?php
                 $items = dbget::get("items");
                 foreach ($items as $item) {
@@ -24,6 +25,11 @@
                 }
                 ?>
             </select>
+            <script>
+                $(document).ready(function() {
+                    $('.example').select2();
+                });
+            </script>
         </div>
         <button type="submit" class="btn btn-secondary">Push</button>
     </form>
