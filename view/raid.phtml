@@ -7,7 +7,6 @@
         </thead>
         <tbody>
         <?php 
-        $bosses = dbget::get("bosses");
         foreach($bosses as $boss)
         {
             $d = dbget::toName("difficulty", $boss[2])?>
