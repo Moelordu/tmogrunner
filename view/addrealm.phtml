@@ -8,7 +8,6 @@
             <label for="regionRealm">Region</label>
             <select name="regionRealm" id="regionRealm" class="custom-select regselect" required>
                 <?php
-                $regions = dbget::get("regions");
                 foreach ($regions as $region) {
                 ?><option value=<?= $region[0] ?>><?= $region[1] ?></option>
                 <?php
@@ -20,7 +19,7 @@
     </form>
 </div>
 <div class="container">
-    <table class="table">
+    <table class="table regtable">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -31,7 +30,6 @@
         </thead>
         <tbody>
             <?php
-            $realms = dbget::get("realms");
             foreach ($realms as $realm) {
             $reg = dbget::toName("regions", $realm["regionRealm"]);
             ?>

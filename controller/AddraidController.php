@@ -12,7 +12,7 @@ class AddraidController extends Controller
                 $_POST["url"] = text::from_camel(text::camelCase($_POST["nameRaid"]));
                 $raid->newRaid($_POST);
             }
-
+            $this->data["raids"] = dbget::get("raids");
             $this->view = "addraid";
         }
         else

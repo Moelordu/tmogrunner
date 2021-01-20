@@ -19,7 +19,7 @@ class EditdifficultyController extends Controller
                 $difficulty->editDifficulty($_POST);
                 $this->redirect("adddifficulty");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["diff"] = dbget::getByID("difficulty", $parameters[0]);
             $this->view = "editdifficulty";
         }
         else
@@ -28,4 +28,4 @@ class EditdifficultyController extends Controller
         }
         
     }
-}
+} 

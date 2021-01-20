@@ -1,4 +1,4 @@
-<?php $item = dbget::getByID("items", $id); ?>
+
 <div class="container">
     <form method="post">
         <div class="form-group">
@@ -9,7 +9,6 @@
             <label for="idTypes">Types</label>
             <select name="idTypes" class="custom-select regselect" required>
                 <?php
-                $types = dbget::get("types");
                 foreach ($types as $type) {
                 ?><option value=<?= $type[0] ?> <?php if($item[2] == $type[0]){ echo "selected";} ?>><?= $type[1] ?></option>
                 <?php
@@ -22,7 +21,6 @@
             <select name="classSet" class="custom-select regselect">   
                 <option value=0> </option>
                 <?php
-                $classes = dbget::get("classes");
                 foreach ($classes as $class) {
                 ?><option value=<?= $class[0] ?> <?php if($item[3] == $class[0]){ echo "selected";} ?>><?= $class[1] ?></option>
                 <?php

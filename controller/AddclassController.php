@@ -11,7 +11,7 @@ class AddclassController extends Controller
             {
                 $class->newClass($_POST);
             }
-
+            $this->data["classes"] = dbget::get("classes");
             $this->view = "addclass";
         }
         else

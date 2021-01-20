@@ -11,7 +11,7 @@ class AddregionController extends Controller
             {
                 $region->newRegion($_POST);
             }
-
+            $this->data["regions"] = dbget::get("regions");
             $this->view = "addregion";
         }
         else

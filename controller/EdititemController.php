@@ -19,7 +19,9 @@ class EdititemController extends Controller
                 $item->editItem($_POST);
                 $this->redirect("additem");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["item"] = dbget::getByID("items", $parameters[0]);
+            $this->data["types"] = dbget::get("types");
+            $this->data["classes"] = dbget::get("classes");
             $this->view = "edititem";
         }
         else
@@ -27,4 +29,4 @@ class EdititemController extends Controller
             $this->redirect("");
         }
     }
-}
+} 

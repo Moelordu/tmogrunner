@@ -19,7 +19,7 @@ class EdittypeController extends Controller
                 $type->editType($_POST);
                 $this->redirect("addtype");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["types"] = dbget::getByID("types", $parameters[0]); 
             $this->view = "edittype";
         }
         else

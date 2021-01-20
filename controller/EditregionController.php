@@ -19,7 +19,7 @@ class EditregionController extends Controller
                 $region->editRegion($_POST);
                 $this->redirect("addregion");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["regions"] = dbget::getByID("regions", $parameters[0]);
             $this->view = "editregion";
         }
         else

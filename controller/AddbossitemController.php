@@ -11,6 +11,9 @@ class AddbossitemController extends Controller
             {
                 $bossitem->newBossItem($_POST);
             }
+            $this->data["bosses"] = dbget::get("bosses");
+            $this->data["items"] = dbget::get("items");
+            $this->data["bossitems"] = dbget::get("bosses_has_items");
 
             $this->view = "addbossitem";
         }

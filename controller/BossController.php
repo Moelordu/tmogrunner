@@ -21,3 +21,4 @@ class BossController extends Controller
 
     }
 }
+ 

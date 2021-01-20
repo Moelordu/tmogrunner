@@ -17,7 +17,11 @@ class EditcharacterController extends Controller
             $character->editCharacter($_POST);
             $this->redirect("addcharacter");
         }
-        $this->data["id"] = $parameters[0];
+        $this->data["realms"] = dbget::get("realms");
+        $this->data["factions"] = dbget::get("factions");
+        $this->data["classes"] = dbget::get("classes");
+        $this->data["chars"] = dbget::getById("characters", $parameters[0]);
         $this->view = "editcharacter";      
     }
 }
+ 

@@ -19,7 +19,7 @@ class EditfactionController extends Controller
                 $faction->editFaction($_POST);
                 $this->redirect("addfaction");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["facs"] = dbget::getByID("factions", $parameters[0]);
             $this->view = "editfaction";
         }
         else
@@ -29,3 +29,4 @@ class EditfactionController extends Controller
         
     }
 }
+ 

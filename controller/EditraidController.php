@@ -19,7 +19,7 @@ class EditraidController extends Controller
                 $raid->editRaid($_POST);
                 $this->redirect("addraid");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["raid"] = dbget::getByID("raids", $parameters[0]);
             $this->view = "editraid";
         }
         else

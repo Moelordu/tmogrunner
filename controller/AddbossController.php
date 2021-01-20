@@ -11,7 +11,9 @@ class AddbossController extends Controller
             {
                 $boss->newBoss($_POST);
             }
-
+            $this->data["raids"] = dbget::get("raids");
+            $this->data["difficulties"] = dbget::get("difficulty");
+            $this->data["bosses"] = dbget::get("bosses");
             $this->view = "addboss";
         }
         else

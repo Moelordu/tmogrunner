@@ -4,7 +4,6 @@
             <label for="idClasses">Class</label>
             <select name="idClasses" id="idClasses" class="custom-select regselect" required>
                 <?php
-                $classes = dbget::get("classes");
                 foreach ($classes as $class) {
                 ?><option value=<?= $class[0] ?>><?= $class[1] ?></option>
                 <?php
@@ -16,7 +15,6 @@
             <label for="idTypes">Type</label>
             <select name="idTypes" id="idTypes" class="custom-select regselect" required>
                 <?php
-                $types = dbget::get("types");
                 foreach ($types as $type) {
                 ?><option value=<?= $type[0] ?>><?= $type[1] ?></option>
                 <?php
@@ -28,7 +26,7 @@
     </form>
 </div>
 <div class="container">
-    <table class="table">
+    <table class="table regtable">
         <thead>
             <tr>
                 <th scope="col">Class</th>
@@ -38,7 +36,6 @@
         </thead>
         <tbody>
             <?php
-            $typeclasses = dbget::get("classes_has_types");
             foreach ($typeclasses as $types) {
                 $classes = dbget::toName("classes", $types["idClasses"]);
                 $type = dbget::toName("types", $types["idTypes"]);

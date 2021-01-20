@@ -23,7 +23,7 @@
     </form>
 </div>
 <div class="container">
-    <table class="table">
+    <table class="table regtable">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -35,7 +35,6 @@
         </thead>
         <tbody>
             <?php
-            $accs = dbget::get("Accounts");
             foreach ($accs as $acc) {
             ?>
                 <tr>

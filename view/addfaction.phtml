@@ -8,7 +8,7 @@
     </form>
 </div>
 <div class="container">
-    <table class="table">
+    <table class="table regtable">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -18,7 +18,6 @@
         </thead>
         <tbody>
             <?php
-            $factions = dbget::get("factions");
             foreach ($factions as $faction) {
             ?>
                 <tr>

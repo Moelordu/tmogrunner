@@ -11,7 +11,7 @@ class AdddifficultyController extends Controller
             {
                 $difficulty->newDifficulty($_POST);
             }
-
+            $this->data["difficulties"] = dbget::get("difficulty");
             $this->view = "adddifficulty";
         }
         else

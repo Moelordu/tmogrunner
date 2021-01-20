@@ -11,7 +11,7 @@ class AddtypeController extends Controller
             {
                 $type->newType($_POST);
             }
-
+            $this->data["types"] = dbget::get("types");
             $this->view = "addtype";
         }
         else

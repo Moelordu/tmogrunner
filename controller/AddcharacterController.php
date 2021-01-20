@@ -11,7 +11,10 @@ class AddcharacterController extends Controller
             {
                 $character->newCharacter($_POST);
             }
-
+            $this->data["realms"] = dbget::get("realms");
+            $this->data["factions"] = dbget::get("factions");
+            $this->data["classes"] = dbget::get("classes");
+            $this->data["characters"] = dbget::getAccCharacters();
             $this->view = "addcharacter";
         }
         else

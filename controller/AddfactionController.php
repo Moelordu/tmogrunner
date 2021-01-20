@@ -11,7 +11,7 @@ class AddfactionController extends Controller
             {
                 $faction->newFaction($_POST);
             }
-
+            $this->data["factions"] = dbget::get("factions");
             $this->view = "addfaction";
         }
         else

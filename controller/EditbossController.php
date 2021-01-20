@@ -19,12 +19,14 @@ class EditbossController extends Controller
                 $boss->editBoss($_POST);
                 $this->redirect("addboss");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["b"] = dbget::getByID("bosses", $parameters[0]);
+            $this->data["difficulties"] = dbget::get("difficulty");
+            $this->data["raids"] = dbget::get("raids");
             $this->view = "editboss";
         }
         else
         {
             $this->redirect("");
-        }
+        } 
     }
 }

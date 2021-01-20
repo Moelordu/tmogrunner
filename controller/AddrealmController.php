@@ -11,7 +11,8 @@ class AddrealmController extends Controller
             {
                 $realm->newRealm($_POST);
             }
-
+            $this->data["regions"] = dbget::get("regions");
+            $this->data["realms"] = dbget::get("realms");
             $this->view = "addrealm";
         }
         else

@@ -8,7 +8,7 @@
             <label for="realmCharacter">Realm</label>
             <select name="realmCharacter" id="realmCharacter" class="custom-select regselect" required>
                 <?php
-                $realms = dbget::get("realms");
+                
                 foreach ($realms as $realm) {
                 $reg = dbget::toName("regions", $realm[2]);
                 ?><option value=<?= $realm[0] ?>><?= $realm[1] . " " . $reg[0] ?></option>
@@ -21,7 +21,7 @@
             <label for="factionCharacter">Faction</label>
             <select name="factionCharacter" id="factionCharacter" class="custom-select regselect" required>
                 <?php
-                $factions = dbget::get("factions");
+                
                 foreach ($factions as $faction) {
                 ?><option value=<?= $faction[0] ?>><?= $faction[1] ?></option>
                 <?php
@@ -33,7 +33,6 @@
             <label for="classCharacter">Class</label>
             <select name="classCharacter" id="classCharacter" class="custom-select regselect" required>
                 <?php
-                $classes = dbget::get("classes");
                 foreach ($classes as $class) {
                 ?><option value=<?= $class[0] ?>><?= $class[1] ?></option>
                 <?php
@@ -48,7 +47,7 @@
     </form>
 </div>
 <div class="container">
-    <table class="table">
+    <table class="table regtable">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -58,7 +57,6 @@
         </thead>
         <tbody>
             <?php
-            $characters = dbget::getAccCharacters();
             foreach ($characters as $character) {
             ?>
                 <tr>

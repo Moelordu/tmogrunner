@@ -19,7 +19,7 @@ class EditclassController extends Controller
                 $class->editClass($_POST);
                 $this->redirect("addclass");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["class"] = dbget::getByID("classes", $parameters[0]);
             $this->view = "editclass";
         }
         else
@@ -29,3 +29,4 @@ class EditclassController extends Controller
         
     }
 }
+ 

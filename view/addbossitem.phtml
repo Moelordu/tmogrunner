@@ -5,7 +5,6 @@
             <label for="idBosses">Boss</label>
             <select name="idBosses" id="idBosses" class="custom-select regselect" required>
                 <?php
-                $bosses = dbget::get("bosses");
                 foreach ($bosses as $boss) {
                 $diffName = dbget::toName("difficulty", $boss[2]);
                 ?><option value=<?= $boss[0] ?>><?= $boss[1] . " " . $diffName[0]?></option>
@@ -18,7 +17,6 @@
             <label for="idItems">Item</label>
             <select class="custom-select regselect" style="color: black;" name="idItems" required>
                 <?php
-                $items = dbget::get("items");
                 foreach ($items as $item) {
                 ?><option value=<?= $item[0] ?>><?= $item[1] ?></option>
                 <?php
@@ -41,7 +39,6 @@
         </thead>
         <tbody>
             <?php
-            $bossitems = dbget::get("bosses_has_items");
             foreach ($bossitems as $bossitem) {
                 $bosses = dbget::toName("bosses", $bossitem["idBosses"]);
                 $item = dbget::toName("items", $bossitem["idItems"]);

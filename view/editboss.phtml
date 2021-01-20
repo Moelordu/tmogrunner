@@ -1,5 +1,3 @@
-<?php 
-$b = dbget::getByID("bosses", $id); ?>
 <div class="container">
     <form method="post">
         <div class="form-group">
@@ -10,9 +8,8 @@ $b = dbget::getByID("bosses", $id); ?>
             <label for="difficulty">Difficulty</label>
             <select name="difficulty" class="custom-select regselect">   
                 <?php
-                $classes = dbget::get("difficulty");
-                foreach ($classes as $class) {
-                ?><option value=<?= $class[0] ?> <?php if($b[2] == $class[0]){ echo "selected";} ?>><?= $class[1] ?></option>
+                foreach ($difficulties as $diff) {
+                ?><option value=<?= $diff[0] ?> <?php if($b[2] == $diff[0]){ echo "selected";} ?>><?= $diff[1] ?></option>
                 <?php
                 }
                 ?>
@@ -22,9 +19,8 @@ $b = dbget::getByID("bosses", $id); ?>
             <label for="raid">Raid</label>
             <select name="raid" class="custom-select regselect">   
                 <?php
-                $classes = dbget::get("raids");
-                foreach ($classes as $class) {
-                ?><option value=<?= $class[0] ?> <?php if($b[3] == $class[0]){ echo "selected";} ?>><?= $class[1] ?></option>
+                foreach ($raids as $raid) {
+                ?><option value=<?= $raid[0] ?> <?php if($b[3] == $raid[0]){ echo "selected";} ?>><?= $raid[1] ?></option>
                 <?php
                 }
                 ?>

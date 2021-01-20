@@ -1,4 +1,4 @@
-<?php $realm = dbget::getByID("realms", $id); ?>
+<?php  ?>
 <div class="container">
     <form method="post">
         <div class="form-group">
@@ -9,7 +9,6 @@
             <label for="regionRealm">Region</label>
             <select name="regionRealm" class="custom-select regselect" required>
                 <?php
-                $regions = dbget::get("regions");
                 foreach ($regions as $region) {
                 ?><option value=<?= $region[0] ?> <?php if($realm[2] == $region[0]){ echo "selected";} ?>><?= $region[1] ?></option>
                 <?php

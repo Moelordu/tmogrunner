@@ -8,9 +8,9 @@
             <label for="difficulty">Difficulty</label>
             <select name="difficulty" id="difficulty" class="custom-select regselect">   
                 <?php
-                $classes = dbget::get("difficulty");
-                foreach ($classes as $class) {
-                ?><option value=<?= $class[0] ?>><?= $class[1] ?></option>
+                
+                foreach ($difficulties as $diff) {
+                ?><option value=<?= $diff[0] ?>><?= $difficulties[1] ?></option>
                 <?php
                 }
                 ?>
@@ -20,9 +20,9 @@
             <label for="raid">Raid</label>
             <select name="raid" id="raid" class="custom-select regselect">   
                 <?php
-                $classes = dbget::get("raids");
-                foreach ($classes as $class) {
-                ?><option value=<?= $class[0] ?>><?= $class[1] ?></option>
+                
+                foreach ($raids as $raid) {
+                ?><option value=<?= $raid[0] ?>><?= $raid[1] ?></option>
                 <?php
                 }
                 ?>
@@ -32,7 +32,7 @@
     </form>
 </div>
 <div class="container">
-    <table class="table">
+    <table class="table regtable">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -44,7 +44,6 @@
         </thead>
         <tbody>
             <?php
-            $bosses = dbget::get("bosses");
             foreach ($bosses as $boss) {
                 $diffName = dbget::toName("difficulty", $boss["difficulty"]);
                 $raidName = dbget::toName("raids", $boss["raid"]);

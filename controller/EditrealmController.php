@@ -19,7 +19,8 @@ class EditrealmController extends Controller
                 $realm->editRealm($_POST);
                 $this->redirect("addrealm");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["realm"] = dbget::getByID("realms", $parameters[0]);
+            $this->data["regions"] = dbget::get("regions");
             $this->view = "editrealm";
         }
         else

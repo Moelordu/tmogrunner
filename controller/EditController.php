@@ -22,7 +22,7 @@ class EditController extends Controller
                 }
                 $this->redirect("adduser");
             }
-            $this->data["id"] = $parameters[0];
+            $this->data["accs"] = dbget::getByID("accounts", $_SESSION["user"]["idAccounts"]);
             $this->view = "edit";
         }
         else
@@ -30,4 +30,4 @@ class EditController extends Controller
             $this->redirect("");
         }
     }
-}
+} 

@@ -1,8 +1,8 @@
-<?php $accs = dbget::getByID("accounts", $_SESSION["user"]["idAccounts"]); ?>
+
 <div class="container">
     <form method="post">
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="name">Username</label>
             <input type="text" class="form-control" name="name" value="<?= $accs[1] ?>" required>
         </div>
         <div class="form-group">

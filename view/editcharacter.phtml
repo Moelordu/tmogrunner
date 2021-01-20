@@ -1,4 +1,4 @@
-<?php $chars = dbget::getById("characters", $id); ?>
+
 <div class="container">
     <form method="post">
         <div class="form-group">
@@ -9,7 +9,6 @@
             <label for="realmCharacter">Realm</label>
             <select name="realmCharacter" class="custom-select regselect" required>
                 <?php
-                $realms = dbget::get("realms");
                 foreach ($realms as $realm) {
                 ?><option value=<?= $realm[0] ?> <?php if($chars[2] == $realm[0]){ echo "selected";} ?>><?= $realm[1] ?></option>
                 <?php
@@ -21,7 +20,6 @@
             <label for="factionCharacter">Faction</label>
             <select name="factionCharacter" class="custom-select regselect" required>
                 <?php
-                $factions = dbget::get("factions");
                 foreach ($factions as $faction) {
                 ?><option value=<?= $faction[0] ?> <?php if($chars[3] == $faction[0]){ echo "selected";} ?>><?= $faction[1] ?></option>
                 <?php
@@ -33,7 +31,6 @@
             <label for="classCharacter">Class</label>
             <select name="classCharacter" class="custom-select regselect" required>
                 <?php
-                $classes = dbget::get("classes");
                 foreach ($classes as $class) {
                 ?><option value=<?= $class[0] ?> <?php if($chars[4] == $class[0]){ echo "selected";} ?>><?= $class[1] ?></option>
                 <?php

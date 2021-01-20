@@ -18,3 +18,7 @@ table.dataTable tbody tr {
 .dataTables_wrapper .dataTables_filter {
   color: white;
 }
+
+.select2-dropdown {
+  color: #444;
+}
