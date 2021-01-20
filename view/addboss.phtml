@@ -6,7 +6,7 @@
         </div>
         <div class="form-group">
             <label for="difficulty">Difficulty</label>
-            <select name="difficulty" id="difficulty" class="custom-select">   
+            <select name="difficulty" id="difficulty" class="custom-select regselect">   
                 <?php
                 $classes = dbget::get("difficulty");
                 foreach ($classes as $class) {
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="raid">Raid</label>
-            <select name="raid" id="raid" class="custom-select">   
+            <select name="raid" id="raid" class="custom-select regselect">   
                 <?php
                 $classes = dbget::get("raids");
                 foreach ($classes as $class) {

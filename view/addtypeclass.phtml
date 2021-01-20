@@ -2,7 +2,7 @@
     <form method="post">
         <div class="form-group">
             <label for="idClasses">Class</label>
-            <select name="idClasses" id="idClasses" class="custom-select" required>
+            <select name="idClasses" id="idClasses" class="custom-select regselect" required>
                 <?php
                 $classes = dbget::get("classes");
                 foreach ($classes as $class) {
@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="idTypes">Type</label>
-            <select name="idTypes" id="idTypes" class="custom-select" required>
+            <select name="idTypes" id="idTypes" class="custom-select regselect" required>
                 <?php
                 $types = dbget::get("types");
                 foreach ($types as $type) {

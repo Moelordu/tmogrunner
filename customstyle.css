@@ -1,0 +1,20 @@
+table {
+  background-color: #292828;
+}
+label {
+  color: white;
+}
+input {
+  color: white;
+}
+.dataTables_wrapper .dataTables_length select {
+  color: white;
+  background-color: #111;
+}
+table.dataTable tbody tr {
+  background-color: #222;
+}
+
+.dataTables_wrapper .dataTables_filter {
+  color: white;
+}

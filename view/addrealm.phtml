@@ -6,7 +6,7 @@
         </div>
         <div class="form-group">
             <label for="regionRealm">Region</label>
-            <select name="regionRealm" id="regionRealm" class="custom-select" required>
+            <select name="regionRealm" id="regionRealm" class="custom-select regselect" required>
                 <?php
                 $regions = dbget::get("regions");
                 foreach ($regions as $region) {

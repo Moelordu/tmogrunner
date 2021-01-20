@@ -6,7 +6,7 @@
         </div>
         <div class="form-group">
             <label for="realmCharacter">Realm</label>
-            <select name="realmCharacter" id="realmCharacter" class="custom-select" required>
+            <select name="realmCharacter" id="realmCharacter" class="custom-select regselect" required>
                 <?php
                 $realms = dbget::get("realms");
                 foreach ($realms as $realm) {
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="factionCharacter">Faction</label>
-            <select name="factionCharacter" id="factionCharacter" class="custom-select" required>
+            <select name="factionCharacter" id="factionCharacter" class="custom-select regselect" required>
                 <?php
                 $factions = dbget::get("factions");
                 foreach ($factions as $faction) {
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <label for="classCharacter">Class</label>
-            <select name="classCharacter" id="classCharacter" class="custom-select" required>
+            <select name="classCharacter" id="classCharacter" class="custom-select regselect" required>
                 <?php
                 $classes = dbget::get("classes");
                 foreach ($classes as $class) {
