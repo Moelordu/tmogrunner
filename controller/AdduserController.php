@@ -14,7 +14,7 @@ class AdduserController extends Controller
                 $login->newUser($par);
                 $this->redirect("adduser");
             }
-            $this->data["accs"] = dbget::get("Accounts");
+            $this->data["accs"] = dbget::get("Users");
             $this->view = "adduser";
         }
         else

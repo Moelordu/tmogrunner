@@ -27,7 +27,7 @@ class dbget
 
     public static function getAccCharacters()
     {
-        $query = "SELECT * FROM characters WHERE " . $_SESSION["user"]["idAccounts"] . " = accountCharacter";
+        $query = "SELECT * FROM characters WHERE " . $_SESSION["user"]["idUsers"] . " = userCharacter";
         $parameters = array();
         return Db::queryAll($query, $parameters);
     }

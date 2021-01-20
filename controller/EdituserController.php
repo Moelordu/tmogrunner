@@ -15,7 +15,7 @@ class EdituserController extends Controller
 
             if (isset($_POST["name"])) 
             {
-                $_POST["idAccounts"] = $parameters[0];
+                $_POST["idUsers"] = $parameters[0];
                 if($_POST["password"] == NULL)
                 {
                     unset($_POST["password"]);
@@ -29,7 +29,7 @@ class EdituserController extends Controller
                 $this->redirect("adduser");
             }
             
-            $this->data["accs"] = dbget::getByID("accounts", $parameters[0]);
+            $this->data["accs"] = dbget::getByID("users", $parameters[0]);
             $this->view = "edituser";
         }
         else

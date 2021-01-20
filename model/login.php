@@ -3,10 +3,15 @@ class login
 {
     public function log($parameters = array())
     {
-        $query = "SELECT * FROM accounts WHERE name = ? AND password = ?";
+        $query = "SELECT * FROM users WHERE name = ? AND password = ?";
         $user = array();
         $user = Db::queryOne($query, array_values($parameters));
-        return $user;
+        if($user)
+        {
+            $_SESSION["user"] = $user;
+            return 1;
+        }
+        return 0;
     }
 
     public function logged($parameters)
@@ -19,38 +24,38 @@ class login
     public function delUser($parameters)
     {
         $query = "DELETE FROM 
-            accounts 
+            users 
         WHERE 
-            idAccounts = ?";
+            idUsers = ?";
         return Db::query($query, array($parameters));
     }
 
     public function editUser($info)
     {
-        $query = "UPDATE accounts SET name = ?, email = ?, admin = ? WHERE idAccounts = ?";
+        $query = "UPDATE users SET name = ?, email = ?, admin = ? WHERE idUsers = ?";
         return Db::query($query, array_values($info));
     }
 
     public function editPUser($info)
     {
-        $query = "UPDATE accounts SET name = ?, password = ?, email = ?, admin = ? WHERE idAccounts = ?";
+        $query = "UPDATE users SET name = ?, password = ?, email = ?, admin = ? WHERE idUsers = ?";
         return Db::query($query, array_values($info));
     }
 
     public function editRUser($info)
     {
-        $query = "UPDATE accounts SET name = ?, email = ? WHERE idAccounts = ?";
+        $query = "UPDATE users SET name = ?, email = ? WHERE idUsers = ?";
         return Db::query($query, array_values($info));
     }
 
     public function editRPUser($info)
     {
-        $query = "UPDATE accounts SET name = ?, password = ?, email = ? WHERE idAccounts = ?";
+        $query = "UPDATE users SET name = ?, password = ?, email = ? WHERE idUsers = ?";
         return Db::query($query, array_values($info));
     }
 
     public function newUser($info)
     {
-        return Db::insert("accounts", $info);
+        return Db::insert("users", $info);
     }
 }
