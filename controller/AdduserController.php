@@ -3,7 +3,7 @@ class AdduserController extends Controller
 {
     public function process($parameters)
     {
-        if($_SESSION["user"]["admin"] == 1)
+        if(!empty($_SESSION["user"]["admin"]))
         {
             $login = new login();
 
@@ -14,7 +14,7 @@ class AdduserController extends Controller
                 $login->newUser($par);
                 $this->redirect("adduser");
             }
-            $this->data["accs"] = dbget::get("Users");
+            $this->data["accs"] = dbget::get("users");
             $this->view = "adduser";
         }
         else
