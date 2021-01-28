@@ -8,10 +8,9 @@
         <tbody>
         <?php 
         foreach($bosses as $boss)
-        {
-            $d = dbget::toName("difficulty", $boss[2])?>
+        { ?>
             <tr>
-                <td><a style="color:inherit; text-decoration: none;" href="boss/<?= text::from_camel(text::camelCase($boss["nameBoss"])) . "/" . $boss[2] ?>"><?= $boss[1] . " " . $d[0] ?></a></td>       
+                <td><a style="color:inherit; text-decoration: none;" href="boss/<?= text::from_camel(text::camelCase($boss["nameBoss"])) . "/" . $boss[2] ?>"><?= $boss[1] . " " . $boss["nameDifficulty"] ?></a></td>       
             </tr>
         <?php
         }
