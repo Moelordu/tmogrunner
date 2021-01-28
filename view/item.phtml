@@ -1,0 +1,24 @@
+
+<div class="container">
+    <table class="table regtable">
+        <thead>
+            <tr>
+                <th scope="col">name</th>
+                <th scope="col">difficulty</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach($bosses as $boss)
+        {?>
+            <tr>
+                <td><a style="color:inherit; text-decoration: none;" href="boss/<?= text::from_camel(text::camelCase($boss["nameBoss"])) ?>/<?= $boss["difficulty"] ?>"><?= $boss["nameBoss"] ?></a></td>
+                
+                <td><?= $boss["nameDifficulty"] ?></td>       
+            </tr>
+        <?php
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
