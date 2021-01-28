@@ -50,7 +50,11 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
+                <th scope="col">name</th>
+                <th scope="col">class</th>
+                <th scope="col">realm</th>
+                <th scope="col">faction</th>
+                
                 <th></th>
             </tr>
         </thead>
@@ -61,6 +65,9 @@
                 <tr>
                     <th scope="row"><?= $character["idCharacters"] ?></td>
                     <td><?= $character["nameCharacter"] ?></td>
+                    <td><?= $character["nameClass"] ?></td>
+                    <td><?= $character["nameRealm"] . " " . $character["nameRegion"] ?></td>
+                    <td><?= $character["nameFaction"] ?></td>
                     <td>
                         <a class="btn btn-secondary" href="editcharacter/<?= $character["idCharacters"] ?>">Edit</a>
                         <a class="btn btn-secondary" href="editcharacter/<?= $character["idCharacters"] ?>/delete">Delete</a>

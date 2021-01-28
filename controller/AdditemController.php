@@ -11,7 +11,7 @@ class AdditemController extends Controller
             {
                 $item->newItem($_POST);
             }
-            $sql = "SELECT i.idItems, i.nameItem, i.idTypes, t.nameType, i.classSet, c.nameClass FROM types t INNER JOIN items i USING(idTypes) INNER JOIN classes c ON(c.idClasses = i.classSet)";
+            $sql = "SELECT i.idItems, i.nameItem, i.idTypes, t.nameType, i.classSet, c.nameClass FROM types t INNER JOIN items i USING(idTypes) LEFT JOIN classes c ON(c.idClasses = i.classSet)";
             
             $this->data["types"] = dbget::get("types");
             $this->data["classes"] = dbget::get("classes");
