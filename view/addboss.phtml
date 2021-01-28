@@ -10,7 +10,7 @@
                 <?php
                 
                 foreach ($difficulties as $diff) {
-                ?><option value=<?= $diff[0] ?>><?= $difficulties[1] ?></option>
+                ?><option value=<?= $diff[0] ?>><?= $diff[1] ?></option>
                 <?php
                 }
                 ?>
@@ -49,7 +49,7 @@
                 <tr>
                     <th scope="row"><?= $boss["idBosses"] ?></td>
                     <td><?= $boss["nameBoss"] ?></td>
-                    <td><?= $boss["nameDifficulty"] . " " . $boss["pNumber"] ?></td>
+                    <td><?= $boss["nameDifficulty"] ?></td>
                     <td><?= $boss["nameRaid"] ?></td>
                     <td>
                         <a class="btn btn-secondary" href="editboss/<?= $boss["idBosses"] ?>">Edit</a>

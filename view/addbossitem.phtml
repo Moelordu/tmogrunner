@@ -6,8 +6,7 @@
             <select name="idBosses" id="idBosses" class="custom-select regselect" required>
                 <?php
                 foreach ($bosses as $boss) {
-                $diffName = dbget::toName("difficulty", $boss[2]);
-                ?><option value=<?= $boss[0] ?>><?= $boss[1] . " " . $diffName[0]?></option>
+                ?><option value=<?= $boss["idBosses"] ?>><?= $boss["nameBoss"] . " " . $boss["nameDifficulty"]?></option>
                 <?php
                 }
                 ?>
@@ -40,14 +39,10 @@
         <tbody>
             <?php
             foreach ($bossitems as $bossitem) {
-                $bosses = dbget::toName("bosses", $bossitem["idBosses"]);
-                $item = dbget::toName("items", $bossitem["idItems"]);
-                $b = dbget::getByID("bosses", $bossitem["idBosses"]);
-                $namediff = dbget::toName("difficulty", $b["difficulty"]);
             ?>
                 <tr>
-                    <td><?= $bosses[0] . " " . $namediff[0] ?></td>
-                    <td><?= $item[0] ?></td>
+                    <td><?= $bossitem["nameBoss"] . " " . $bossitem["nameDifficulty"] ?></td>
+                    <td><?= $bossitem["nameItem"] ?></td>
                     <td>
                         <a class="btn btn-secondary" href="editbossitem/<?= $bossitem["idBosses"] ?>/<?= $bossitem["idItems"] ?>/delete">Delete</a>
                     </td>
