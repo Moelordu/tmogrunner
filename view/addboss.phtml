@@ -45,14 +45,12 @@
         <tbody>
             <?php
             foreach ($bosses as $boss) {
-                $diffName = dbget::toName("difficulty", $boss["difficulty"]);
-                $raidName = dbget::toName("raids", $boss["raid"]);
             ?>
                 <tr>
                     <th scope="row"><?= $boss["idBosses"] ?></td>
                     <td><?= $boss["nameBoss"] ?></td>
-                    <td><?= $diffName[0] ?></td>
-                    <td><?= $raidName[0] ?></td>
+                    <td><?= $boss["nameDifficulty"] . " " . $boss["pNumber"] ?></td>
+                    <td><?= $boss["nameRaid"] ?></td>
                     <td>
                         <a class="btn btn-secondary" href="editboss/<?= $boss["idBosses"] ?>">Edit</a>
                         <a class="btn btn-secondary" href="editboss/<?= $boss["idBosses"] ?>/delete">Delete</a>

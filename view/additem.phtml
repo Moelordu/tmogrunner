@@ -44,14 +44,12 @@
         <tbody>
             <?php
             foreach ($items as $item) {
-                $className = dbget::toName("classes", $item["classSet"]);
-                $typeName = dbget::toName("types", $item["idTypes"]);
             ?>
                 <tr>
                     <th scope="row"><?= $item["idItems"] ?></td>
                     <td><?= $item["nameItem"] ?></td>
-                    <td><?= $typeName[0] ?></td>
-                    <td><?php if ($item["classSet"] > 0){ echo $className[0];} ?></td>
+                    <td><?= $item["nameType"] ?></td>
+                    <td><?php if ($item["classSet"] > 0){ echo $item["nameClass"];} ?></td>
                     <td>
                         <a class="btn btn-secondary" href="edititem/<?= $item["idItems"] ?>">Edit</a>
                         <a class="btn btn-secondary" href="edititem/<?= $item["idItems"] ?>/delete">Delete</a>
