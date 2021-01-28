@@ -28,15 +28,14 @@
                 <th scope="col"></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
             <?php
             foreach ($realms as $realm) {
-            $reg = dbget::toName("regions", $realm["regionRealm"]);
             ?>
                 <tr>
                     <th scope="row"><?= $realm["idRealms"] ?></td>
                     <td><?= $realm["nameRealm"] ?></td>
-                    <td><?= $reg[0] ?></td>
+                    <td><?= $realm["nameRegion"] ?></td>
                     <td>
                         <a class="btn btn-secondary" href="editrealm/<?= $realm["idRealms"] ?>">Edit</a>
                         <a class="btn btn-secondary" href="editrealm/<?= $realm["idRealms"] ?>/delete">Delete</a>

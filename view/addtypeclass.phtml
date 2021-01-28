@@ -9,7 +9,7 @@
                 <?php
                 }
                 ?>
-            </select>
+            </select> 
         </div>
         <div class="form-group">
             <label for="idTypes">Type</label>
@@ -36,13 +36,12 @@
         </thead>
         <tbody>
             <?php
-            foreach ($typeclasses as $types) {
-                $classes = dbget::toName("classes", $types["idClasses"]);
-                $type = dbget::toName("types", $types["idTypes"]);
+            foreach ($typeclasses as $types) 
+            {
             ?>
                 <tr>
-                    <td><?= $classes[0] ?></td>
-                    <td><?= $type[0] ?></td>
+                    <td><?= $types["nameClass"] ?></td>
+                    <td><?= $types["nameType"] ?></td>
                     <td>
                         <a class="btn btn-secondary" href="edittypeclass/<?= $types["idClasses"] ?>/<?= $types["idTypes"] ?>/delete">Delete</a>
                     </td>
