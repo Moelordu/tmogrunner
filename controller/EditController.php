@@ -9,7 +9,7 @@ class EditController extends Controller
 
             if (isset($_POST["name"])) 
             {
-                $_POST["idAccounts"] = $_SESSION["user"]["idAccounts"];
+                $_POST["idUsers"] = $_SESSION["user"]["idUsers"];
                 if($_POST["password"] == NULL)
                 {
                     unset($_POST["password"]);
@@ -22,7 +22,7 @@ class EditController extends Controller
                 }
                 $this->redirect("adduser");
             }
-            $this->data["accs"] = dbget::getByID("accounts", $_SESSION["user"]["idAccounts"]);
+            $this->data["accs"] = dbget::getByID("users", $_SESSION["user"]["idUsers"]);
             $this->view = "edit";
         }
         else
