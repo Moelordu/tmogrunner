@@ -14,13 +14,14 @@ class RaidController extends Controller
         if (isset($_POST["idBosses"])) {
             if($_POST["idUsers"] > 0)
             {
+                $_POST["idUsers"] = $_SESSION["user"]["idUsers"];
                 $favorite->newFavorite($_POST);
-                $this->redirect("");
+                $this->redirect("/raid\/" . $parameters[0]);
             }
             else
             {
                 $favorite->delFavorite($_POST["idBosses"], $_SESSION["user"]["idUsers"]);
-                $this->redirect("");
+                $this->redirect("/raid\/" . $parameters[0]);
             }
                 
         }

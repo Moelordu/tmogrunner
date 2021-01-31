@@ -17,15 +17,15 @@
                 <?php
                 if(empty($boss["idUsers"]))
                 {?>
-                    <input type="hidden" name="idUsers" value="<?= $_SESSION["user"]["idUsers"] ?>">
-                    <input type="hidden" name="idBosses" value="<?= $boss["idBosses"] ?>">
+                    <input type="hidden" name="idUsers" value=1>
+                    <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
                     <a name="fav" href="javascript:$('#bossFav').submit()" style="color: yellow;">✰</a>
                 <?php
                 }
                 else
                 {?>
-                    <input type="hidden" name="idUsers" value="0">
-                    <input type="hidden" name="idBosses" value="<?= $boss["idBosses"] ?>">
+                    <input type="hidden" name="idUsers" value=0>
+                    <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
                     <a name="fav" href="javascript:$('#bossFav').submit()" style="color: red;">X</a>
                 <?php
                 }
