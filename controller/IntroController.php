@@ -3,6 +3,13 @@ class IntroController extends Controller
 {
     public function process($parameters)
     {
-        $this->view = "intro";
+        if(!empty($_SESSION["user"]))
+        {
+            $this->view = "favorite";
+        }
+        else
+        {   
+            $this->view = "intro";
+        }
     }
 }

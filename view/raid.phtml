@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th scope="col">name</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -11,6 +12,25 @@
         { ?>
             <tr>
                 <td><a style="color:inherit; text-decoration: none;" href="boss/<?= text::from_camel(text::camelCase($boss["nameBoss"])) . "/" . $boss[2] ?>"><?= $boss[1] . " " . $boss["nameDifficulty"] ?></a></td>       
+                <td>
+                <form action="POST" id="bossFav"> 
+                <?php
+                if(empty($boss["idUsers"]))
+                {?>
+                    <input type="hidden" name="idUsers" value="<?= $_SESSION["user"]["idUsers"] ?>">
+                    <input type="hidden" name="idBosses" value="<?= $boss["idBosses"] ?>">
+                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: yellow;">✰</a>
+                <?php
+                }
+                else
+                {?>
+                    <input type="hidden" name="idUsers" value="0">
+                    <input type="hidden" name="idBosses" value="<?= $boss["idBosses"] ?>">
+                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: red;">X</a>
+                <?php
+                }
+                ?>
+                </form></td>
             </tr>
         <?php
         }
