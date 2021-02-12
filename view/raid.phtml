@@ -19,14 +19,14 @@
                 {?>
                     <input type="hidden" name="idUsers" value=1>
                     <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
-                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: yellow;">✰</a>
+                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: yellow; text-decoration:none;">✰</a>
                 <?php
                 }
                 else
                 {?>
                     <input type="hidden" name="idUsers" value=0>
                     <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
-                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: red;">X</a>
+                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: red; text-decoration:none;">X</a>
                 <?php
                 }
                 ?>
