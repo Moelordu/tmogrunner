@@ -13,28 +13,38 @@
             <tr>
                 <td><a style="color:inherit; text-decoration: none;" href="boss/<?= text::from_camel(text::camelCase($boss["nameBoss"])) . "/" . $boss[2] ?>"><?= $boss[1] . " " . $boss["nameDifficulty"] ?></a></td>       
                 <td>
-                <form action="POST" id="bossFav"> 
+                <form method="POST"> 
                 <?php
                 if(empty($boss["idUsers"]))
                 {?>
                     <input type="hidden" name="idUsers" value=1>
                     <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
-                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: yellow; text-decoration:none;">✰</a>
+                    <a class="fav" href="#" style="color: yellow; text-decoration:none;">✰</a>
                 <?php
                 }
                 else
                 {?>
                     <input type="hidden" name="idUsers" value=0>
                     <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
-                    <a name="fav" href="javascript:$('#bossFav').submit()" style="color: red; text-decoration:none;">X</a>
+                    <a class="fav" href="#" style="color: red; text-decoration:none;">X</a>
                 <?php
                 }
                 ?>
-                </form></td>
+                </form>
+                
+                </td>
             </tr>
         <?php
         }
         ?>
+        <script>
+            $('form').each(function(){
+                $(this).children('a.fav').click(function(event){
+                    event.preventDefault()
+                    $(this).parent().submit()
+                })
+            })
+        </script>
         </tbody>
     </table>
 </div>

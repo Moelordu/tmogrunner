@@ -25,8 +25,6 @@ class RaidController extends Controller
             }
                 
         }
-
         $this->view = "raid";
-
     }
 }
