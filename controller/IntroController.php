@@ -13,7 +13,7 @@ class IntroController extends Controller
             if (isset($_POST["favorite"])) {
                 if($_POST["favorite"] > 0)
                 {
-                    $_POST["favorite"] = null;
+                    unset($_POST["favorite"]);
                     $intro->newFavorite($_POST);
                     $this->redirect("");
                 }

@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th scope="col">name</th>
-                <th scope="col">difficulty</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -13,11 +13,36 @@
         {?>
             <tr>
                 <td><a style="color:inherit; text-decoration: none;" href="boss/<?= text::from_camel(text::camelCase($boss["nameBoss"])) ?>/<?= $boss["difficulty"] ?>"><?= $boss["nameBoss"] . " " . $boss["nameDifficulty"] ?></a></td>
-                <td><?= $boss["nameDifficulty"] ?></td>       
+                <form method="POST"> 
+                <?php
+                if(empty($boss["idUsers"]))
+                {?>
+                    <input type="hidden" name="idUsers" value=1>
+                    <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
+                    <td><a class="fav" href="#" style="color: yellow; text-decoration:none;">✰</a></td>
+                <?php
+                }
+                else
+                {?>
+                    <input type="hidden" name="idUsers" value=0>
+                    <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
+                    <td><a class="fav" href="#" style="color: red; text-decoration:none;">X</a></td>
+                <?php
+                }
+                ?>
+                </form>     
             </tr>
         <?php
         }
         ?>
+        <script>
+        $('form').each(function(){
+            $(this).children('a.fav').click(function(event){
+                event.preventDefault()
+                $(this).parent().submit()
+            })
+        })
+    </script>
         </tbody>
     </table>
 </div>

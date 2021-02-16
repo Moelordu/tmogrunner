@@ -1,8 +1,8 @@
 <div class="container">
-    <table class="table regtable">
+    <table class="table">
         <thead>
             <tr>
-                <th scope="col">character</th>
+                <th scope="col">#</th>
                 <?php
                 foreach($bosses as $boss)
                 {?>
@@ -25,7 +25,7 @@
                     <input type="hidden" name="idCharacters" value= <?= $character["idCharacters"] ?>>
                     <input type="hidden" name="idBosses" value= <?= $boss["idBosses"] ?>>
                     <input type="hidden" name="favorite" value=0>
-                    <td> <input type="checkbox" class="favorite" name="favorite" value=1 <?php foreach($checks as $check){ if($check["idBosses"] == $boss["idBosses"] && $check["idCharacters"] == $character["idCharacters"]){ echo checked;}} ?>> </td>
+                    <td> <input type="checkbox" onChange="this.form.submit()" class="favorite" name="favorite" value=1 <?php foreach($checks as $check){ if($check["idBosses"] == $boss["idBosses"] && $check["idCharacters"] == $character["idCharacters"]){ echo "checked";}} ?>> </td>
                     </form>
                     
                 <?php } ?>
@@ -34,7 +34,7 @@
             ?>
         <script>
             /*$('form').each(function(){
-                $(this).children('input.favorite').on('change',function(event){
+                $(this).children('input.favorite').click('change',function(event){
                     event.preventDefault()
                     $(this).parent().submit()
                 })
