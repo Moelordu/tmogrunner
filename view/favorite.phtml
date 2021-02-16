@@ -1,0 +1,46 @@
+<div class="container">
+    <table class="table regtable">
+        <thead>
+            <tr>
+                <th scope="col">character</th>
+                <?php
+                foreach($bosses as $boss)
+                {?>
+                    <th scope="col"><?= $boss["nameBoss"] . " " . $boss["nameDifficulty"] ?></th>
+                <?php }
+                ?>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach($characters as $character)
+            {?>
+                <tr>
+                <td> <?= $character["nameCharacter"] ?></td><?php
+                foreach($bosses as $boss)
+                {?>
+                    
+                    
+                    <form method="POST">
+                    <input type="hidden" value= <?= $_SESSION["user"]["idUsers"] ?>>
+                    <input type="hidden" value= <?= $boss["idBosses"] ?>>
+                    <input type="hidden" name="favorite" value=0>
+                    <td> <input type="checkbox" class="favorite" name="favorite" value=1 <?php if($boss["favorite"] != 0){ echo "checked";} ?>> </td>
+                    </form>
+                    
+                <?php } ?>
+                </tr><?php
+            }
+            ?>
+        <script>
+            $('form').each(function(){
+                $(this).children('input.favorite').click(function(event){
+                    event.preventDefault()
+                    $(this).parent().submit()
+                })
+            })
+        </script>
+        </tbody>
+    </table>
+</div>
