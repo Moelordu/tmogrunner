@@ -8,4 +8,4 @@ function loadClass($class)
 }
 spl_autoload_register("loadClass");
 
-Db::connect("localhost", "root", "", "tmogrunner");
+Db::connect("localhost", "root", "", "tmogru");
