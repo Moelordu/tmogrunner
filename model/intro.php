@@ -1,19 +1,19 @@
 <?php
 class intro
 {
+
     public function newFavorite($info)
     {
-        $sql = "UPDATE users_has_bosses set favorite = '1' 
-        WHERE idUsers = '" . $info[idUsers] . "' AND idBosses = '" . $info[idBosses] . "'";
-
-        return Db::query($sql);
+        return Db::insert("characters_has_bosses", $info);
     }
 
-    public function delFavorite($info)
+    public function delFavorite($par0, $par1)
     {
-        $sql = "UPDATE users_has_bosses set favorite = '0' 
-        WHERE idUsers = '" . $info[idUsers] . "' AND idBosses = '" . $info[idBosses] . "'";
-
-        return Db::query($sql);
+        $query = "DELETE FROM 
+            characters_has_bosses 
+        WHERE 
+            idBosses = $par0 AND idCharacters = $par1";
+        Db::query($query);
     }
+
 }

@@ -23,10 +23,10 @@
                     
                     
                     <form method="POST">
-                    <input type="hidden" value= <?= $_SESSION["user"]["idUsers"] ?>>
-                    <input type="hidden" value= <?= $boss["idBosses"] ?>>
+                    <input type="hidden" name="idCharacters" value= <?= $character["idCharacters"] ?>>
+                    <input type="hidden" name="idBosses" value= <?= $boss["idBosses"] ?>>
                     <input type="hidden" name="favorite" value=0>
-                    <td> <input type="checkbox" class="favorite" name="favorite" value=1 <?php if($boss["favorite"] != 0){ echo "checked";} ?>> </td>
+                    <td> <input type="checkbox" class="favorite" name="favorite" value=1 <?php if(!empty($character["idBosses"])){ echo "checked";} ?>> </td>
                     </form>
                     
                 <?php } ?>
@@ -34,8 +34,8 @@
             }
             ?>
         <script>
-            $('form').each(function(){
-                $(this).children('input.favorite').click(function(event){
+            /*$('form').each(function(){
+                $(this).children('input.favorite').on('change',function(event){
                     event.preventDefault()
                     $(this).parent().submit()
                 })
