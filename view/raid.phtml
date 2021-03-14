@@ -15,8 +15,16 @@
                 <td>
                 <form method="POST"> 
                 <?php
-                if(empty($boss["idUsers"]))
-                {?>
+                $cnt = 0;
+                foreach($query as $q)
+                {
+                    if($q["idBosses"] == $boss["idBosses"] && $q["idUsers"] == $_SESSION["user"]["idUsers"])
+                    {
+                        $cnt = 1;
+                    }
+                    
+                }
+                if($cnt != 1){?>
                     <input type="hidden" name="idUsers" value=1>
                     <input type="hidden" name="idBosses" value=<?= $boss["idBosses"] ?>>
                     <a class="fav" href="#" style="color: yellow; text-decoration:none;">✰</a>

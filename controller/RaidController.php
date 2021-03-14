@@ -5,10 +5,13 @@ class RaidController extends Controller
     {
         $favorite = new favorite();
         $rname = text::camelCase($parameters[0]);
-        $sql = "SELECT b.idBosses, b.nameBoss, b.difficulty, b.raid, d.nameDifficulty, u.idUsers
-        FROM raids r INNER JOIN bosses b ON(r.idRaids = b.raid) INNER JOIN difficulty d ON(b.difficulty = d.idDifficulty) LEFT JOIN users_has_bosses ub ON(b.idBosses = ub.idBosses) LEFT JOIN users u ON(ub.idUsers = u.idUsers)
+        $sql = "SELECT b.idBosses, b.nameBoss, b.difficulty, b.raid, d.nameDifficulty
+        FROM raids r INNER JOIN bosses b ON(r.idRaids = b.raid) INNER JOIN difficulty d ON(b.difficulty = d.idDifficulty)
         WHERE replace(replace(r.nameRaid, ' ', ''), '\'', '') like '$rname'";
+
+        $sql1 = "SELECT b.idBosses, u.idUsers FROM bosses b LEFT JOIN users_has_bosses ub USING(idBosses) LEFT JOIN users u USING(idUsers)";
  
+        $this->data["query"] = Db::queryAll($sql1);
         $this->data["bosses"] = Db::queryAll($sql);
 
         if (isset($_POST["idBosses"])) {
