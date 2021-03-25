@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th scope="col">name</th>
+                <th scope="col">type</th>
                 <th scope="col">class</th>
             </tr>
         </thead>
@@ -12,6 +13,7 @@
         {?>
             <tr>
                 <td><a style="color:inherit; text-decoration: none;" href="item/<?= text::from_camel(text::camelCase($item["nameItem"])) ?>"><?= $item["nameItem"] ?></a></td>
+                <td><?= $item["nameType"] ?></td>
                 <td><?= $item["nameClass"] ?></td>  
             </tr>
         <?php

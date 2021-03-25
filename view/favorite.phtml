@@ -25,7 +25,8 @@
                     <input type="hidden" name="idCharacters" value= <?= $character["idCharacters"] ?>>
                     <input type="hidden" name="idBosses" value= <?= $boss["idBosses"] ?>>
                     <input type="hidden" name="favorite" value=0>
-                    <td> <input type="checkbox" onChange="this.form.submit()" class="favorite" name="favorite" value=1 <?php foreach($checks as $check){ if($check["idBosses"] == $boss["idBosses"] && $check["idCharacters"] == $character["idCharacters"]){ echo "checked";}} ?>> </td>
+                    <td> <input type="checkbox" onChange="this.form.submit()" class="favorite" name="favorite" value=1 <?php foreach($checks as $check)
+                    { if($check["idBosses"] == $boss["idBosses"] && $check["idCharacters"] == $character["idCharacters"]){ echo "checked";}} ?>> </td>
                     </form>
                     
                 <?php } ?>

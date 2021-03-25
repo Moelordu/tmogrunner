@@ -7,9 +7,15 @@ class IntroController extends Controller
         {
             $intro = new intro();
 
-            $sql0 = "SELECT b.idBosses, b.nameBoss, d.idDifficulty, d.nameDifficulty FROM users u INNER JOIN users_has_bosses ub USING(idUsers) INNER JOIN bosses b USING(idBosses) INNER JOIN difficulty d ON(b.difficulty = d.idDifficulty) WHERE u.idUsers = '" . $_SESSION["user"]["idUsers"] . "'";
-            $sql1 = "SELECT u.idUsers, ch.idCharacters, ch.nameCharacter FROM users u INNER JOIN characters ch ON(u.idUsers = ch.userCharacter) WHERE u.idUsers = '" . $_SESSION["user"]["idUsers"] . "'";
-            $sql2 = "SELECT ch.idCharacters, b.idBosses FROM characters ch INNER JOIN characters_has_bosses chb USING(idCharacters) INNER JOIN bosses b USING(idBosses) INNER JOIN users u ON(ch.userCharacter = u.idUsers) WHERE u.idUsers = '" . $_SESSION["user"]["idUsers"] . "'";
+            $sql0 = "SELECT b.idBosses, b.nameBoss, d.idDifficulty, d.nameDifficulty 
+            FROM users u INNER JOIN users_has_bosses ub USING(idUsers) INNER JOIN bosses b USING(idBosses) 
+            INNER JOIN difficulty d ON(b.difficulty = d.idDifficulty) WHERE u.idUsers = '" . $_SESSION["user"]["idUsers"] . "'";
+            $sql1 = "SELECT u.idUsers, ch.idCharacters, ch.nameCharacter 
+            FROM users u INNER JOIN characters ch ON(u.idUsers = ch.userCharacter) WHERE u.idUsers = '" . $_SESSION["user"]["idUsers"] . "'";
+            $sql2 = "SELECT ch.idCharacters, b.idBosses 
+            FROM characters ch INNER JOIN characters_has_bosses chb USING(idCharacters) INNER JOIN bosses b USING(idBosses) 
+            INNER JOIN users u ON(ch.userCharacter = u.idUsers) WHERE u.idUsers = '" . $_SESSION["user"]["idUsers"] . "'";
+            
             if (isset($_POST["favorite"])) {
                 if($_POST["favorite"] > 0)
                 {

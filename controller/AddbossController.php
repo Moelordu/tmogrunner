@@ -11,7 +11,8 @@ class AddbossController extends Controller
             {
                 $boss->newBoss($_POST);
             }
-            $sql = "SELECT b.idBosses, b.nameBoss, b.difficulty, d.nameDifficulty, d.pNumber, b.raid, r.nameRaid, r.url FROM raids r INNER JOIN bosses b ON(r.idRaids=b.raid) INNER JOIN difficulty d ON(d.idDifficulty = b.difficulty)";
+            $sql = "SELECT b.idBosses, b.nameBoss, b.difficulty, d.nameDifficulty, d.pNumber, b.raid, r.nameRaid, r.url 
+            FROM raids r INNER JOIN bosses b ON(r.idRaids=b.raid) INNER JOIN difficulty d ON(d.idDifficulty = b.difficulty)";
             
             $this->data["raids"] = dbget::get("raids");
             $this->data["difficulties"] = dbget::get("difficulty");

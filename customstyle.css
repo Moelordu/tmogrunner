@@ -1,28 +1,29 @@
 table {
-  background-color: #292828;
+    background-color: #292828;
 }
 label {
-  color: white;
+    color: white;
 }
-input {
-  color: white;
+.dataTables_wrapper .dataTables_filter input {
+    background-color: white;
 }
+
 .dataTables_wrapper .dataTables_length select {
-  color: white;
-  background-color: #111;
+    color: white;
+    background-color: #111;
 }
 table.dataTable tbody tr {
-  background-color: #222;
+    background-color: #222;
 }
 
 .dataTables_wrapper .dataTables_filter {
-  color: white;
+    color: white;
 }
 
 .select2-dropdown {
-  color: #444;
+    color: #444;
 }
 
 input {
-  color: #444;
+    color: #444;
 }
